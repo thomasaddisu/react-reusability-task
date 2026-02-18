@@ -6,7 +6,7 @@ function QuotesPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Simulating API call
+    
     setTimeout(() => {
       try {
         const fakeQuotes = [
