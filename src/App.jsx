@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import TasksPage from './pages/TasksPage';
+import QuotesPage from './pages/QuotesPage';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-gray-100">
+      <nav className="bg-gray-800 text-white py-4 px-6 shadow-lg sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto flex justify-center space-x-8">
+          <a 
+            href="#tasks" 
+            className="hover:text-blue-300 transition-colors font-medium px-4 py-2 rounded-md hover:bg-gray-700"
+          >
+            Tasks
+          </a>
+          <a 
+            href="#quotes" 
+            className="hover:text-purple-300 transition-colors font-medium px-4 py-2 rounded-md hover:bg-gray-700"
+          >
+            Quotes
+          </a>
+        </div>
+      </nav>
+      
+      <div className="max-w-6xl mx-auto">
+        <section id="tasks" className="scroll-mt-16">
+          <TasksPage />
+        </section>
+        
+        <section id="quotes" className="scroll-mt-16 border-t-2 border-gray-300 mt-8">
+          <QuotesPage />
+        </section>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
