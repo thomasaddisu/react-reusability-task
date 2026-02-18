@@ -10,12 +10,12 @@ function QuotesPage() {
     setTimeout(() => {
       try {
         const fakeQuotes = [
-          { id: 101, text: 'The best way to predict the future is to invent it.', author: 'Alan Kay' },
-          { id: 102, text: 'Life is what happens when you\'re busy making other plans.', author: 'John Lennon' },
-          { id: 103, text: 'Get busy living or get busy dying.', author: 'Stephen King' },
-          { id: 104, text: 'You only live once, but if you do it right, once is enough.', author: 'Mae West' },
-          { id: 105, text: 'The only way to do great work is to love what you do.', author: 'Steve Jobs' },
-          { id: 106, text: 'Simplicity is the ultimate sophistication.', author: 'Leonardo da Vinci' }
+          { id: 101, text: 'The best way to predict the future is to invent it.', description: 'Alan Kay' },
+          { id: 102, text: 'Life is what happens when you\'re busy making other plans.', description: 'John Lennon' },
+          { id: 103, text: 'Get busy living or get busy dying.', description: 'Stephen King' },
+          { id: 104, text: 'You only live once, but if you do it right, once is enough.', description: 'Mae West' },
+          { id: 105, text: 'The only way to do great work is to love what you do.', description: 'Steve Jobs' },
+          { id: 106, text: 'Simplicity is the ultimate sophistication.', description: 'Leonardo da Vinci' }
         ];
         setQuotes(fakeQuotes);
         setLoading(false);
