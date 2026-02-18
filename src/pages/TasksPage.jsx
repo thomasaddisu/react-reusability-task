@@ -50,20 +50,21 @@ function TasksPage() {
       </h1>
       
       <ul className="space-y-3">
-       
+        {tasks.map(task => {
+         
           
           return (
             <li 
-              key={task.id} 
+              key={task.id}
               className={`p-4 border rounded-lg shadow-sm flex justify-between items-center ${
-                
+                task.description === 'completed' ? 'bg-green-50' : 'bg-white'
               }`}
             >
-              <span className={`text-lg ${task.status === 'completed' ? 'line-through text-gray-500' : 'text-gray-800'}`}>
-                {task.name}
+              <span className={`text-lg ${task.description === 'completed' ? 'line-through text-gray-500' : 'text-gray-800'}`}>
+                {task.text}
               </span>
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-               {task.status}
+               {task.description}
             </span>
             </li>
           );

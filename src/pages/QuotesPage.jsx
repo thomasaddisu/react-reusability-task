@@ -60,7 +60,7 @@ function QuotesPage() {
               &ldquo;{quote.text}&rdquo;  
             </span>
             <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              — {quote.author}
+               {quote.description}
             </span>
           </li>
         ))}
