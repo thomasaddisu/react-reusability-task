@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function QuotesPage() {
   const [quotes, setQuotes] = useState([]);
-  const [isFetching, setIsFetching] = useState(true);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Simulating API call with different pattern
+    // Simulating API call
     setTimeout(() => {
       try {
         const fakeQuotes = [
@@ -18,61 +18,55 @@ function QuotesPage() {
           { id: 106, text: 'Simplicity is the ultimate sophistication.', author: 'Leonardo da Vinci' }
         ];
         setQuotes(fakeQuotes);
-        setIsFetching(false);
+        setLoading(false);
       } catch (err) {
-        setErrorMsg('Oops! Quotes could not be loaded');
-        setIsFetching(false);
+        setError('Failed to load quotes');
+        setLoading(false);
       }
-    }, 1500); // Different timeout
+    }, 1500);
   }, []);
 
-  // Different loading UI (text only, no spinner)
-  if (isFetching) {
+  if (loading) {
     return (
-      <div className="text-center p-12 bg-purple-50 rounded-lg">
-        <h3 className="text-xl font-semibold text-purple-800 mb-2">
-          Please wait while we fetch some inspiration...
-        </h3>
-        <p className="text-purple-600 animate-pulse">Loading quotes</p>
+      <div className="text-center p-8">
+        <div className="spinner w-10 h-10 border-4 border-gray-200 border-t-4 border-t-blue-500 rounded-full mx-auto"></div>
+        <p className="mt-4 text-gray-600 font-medium">Loading inspirational quotes...</p>
       </div>
     );
   }
 
-  if (errorMsg) {
+  if (error) {
     return (
-      <div className="m-6 p-4 bg-red-100 border-2 border-red-300 text-red-700 rounded-lg text-center">
-        <p className="font-bold text-lg">⚠️ Error</p>
-        <p>{errorMsg}</p>
+      <div className="p-6 m-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">
+        <p className="font-bold">Error</p>
+        <p>{error}</p>
       </div>
     );
   }
 
   return (
-    <div className="p-8 bg-gradient-to-b from-purple-50 to-pink-50 min-h-screen">
-      <h2 className="text-3xl font-bold text-purple-700 border-l-4 border-purple-500 pl-4 mb-8">
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-6">
         Inspirational Quotes
-      </h2>
+      </h1>
       
-      {/* Different list style from TasksPage - cards instead of list */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {quotes.map(item => (
-          <div 
-            key={item.id} 
-            className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-purple-100"
+      <ul className="space-y-3">
+        {quotes.map(quote => (
+          <li 
+            key={quote.id} 
+            className="p-4 border rounded-lg shadow-sm bg-white flex justify-between items-center"
           >
-            <p className="text-lg text-gray-700 font-serif italic mb-4">
-              "{item.text}"
-            </p>
-            <p className="text-right text-purple-600 font-bold border-t-2 border-purple-100 pt-3">
-              — {item.author}
-            </p>
-          </div>
+            <span className="text-lg text-gray-800">
+              &ldquo;{quote.text}&rdquo;  
+            </span>
+            <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+              — {quote.author}
+            </span>
+          </li>
         ))}
-      </div>
+      </ul>
       
-      <div className="mt-10 text-center text-gray-500 border-t-2 border-purple-200 pt-6">
-        <p className="text-sm uppercase tracking-wide">✨ {quotes.length} quotes of wisdom ✨</p>
-      </div>
+      
     </div>
   );
 }

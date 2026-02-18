@@ -6,7 +6,6 @@ function TasksPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Simulating API call
     setTimeout(() => {
       try {
         const fakeTasks = [
@@ -29,7 +28,6 @@ function TasksPage() {
   if (loading) {
     return (
       <div className="text-center p-8">
-        {/* Using the spinner class from index.css */}
         <div className="spinner w-10 h-10 border-4 border-gray-200 border-t-4 border-t-blue-500 rounded-full mx-auto"></div>
         <p className="mt-4 text-gray-600 font-medium">Loading your tasks...</p>
       </div>
@@ -51,10 +49,8 @@ function TasksPage() {
         My Task List
       </h1>
       
-      {/* Ugly inline task list with repetitive Tailwind classes */}
       <ul className="space-y-3">
         {tasks.map(task => {
-          // Determine status color (hardcoded logic inside JSX)
           let statusColor = '';
           if (task.status === 'completed') statusColor = 'bg-green-100 text-green-800';
           else if (task.status === 'in-progress') statusColor = 'bg-yellow-100 text-yellow-800';
@@ -78,20 +74,6 @@ function TasksPage() {
         })}
       </ul>
       
-      <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <p className="text-gray-600">
-          <span className="font-semibold">Total tasks:</span> {tasks.length}
-        </p>
-        <p className="text-gray-600">
-          <span className="font-semibold">Completed:</span> {tasks.filter(t => t.status === 'completed').length}
-        </p>
-        <p className="text-gray-600">
-          <span className="font-semibold">In progress:</span> {tasks.filter(t => t.status === 'in-progress').length}
-        </p>
-        <p className="text-gray-600">
-          <span className="font-semibold">Pending:</span> {tasks.filter(t => t.status === 'pending').length}
-        </p>
-      </div>
     </div>
   );
 }
