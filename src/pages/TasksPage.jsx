@@ -50,25 +50,21 @@ function TasksPage() {
       </h1>
       
       <ul className="space-y-3">
-        {tasks.map(task => {
-          let statusColor = '';
-          if (task.status === 'completed') statusColor = 'bg-green-100 text-green-800';
-          else if (task.status === 'in-progress') statusColor = 'bg-yellow-100 text-yellow-800';
-          else statusColor = 'bg-red-100 text-red-800';
+       
           
           return (
             <li 
               key={task.id} 
               className={`p-4 border rounded-lg shadow-sm flex justify-between items-center ${
-                task.status === 'completed' ? 'bg-green-50' : 'bg-white'
+                
               }`}
             >
               <span className={`text-lg ${task.status === 'completed' ? 'line-through text-gray-500' : 'text-gray-800'}`}>
                 {task.name}
               </span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusColor}`}>
-                {task.status}
-              </span>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+               {task.status}
+            </span>
             </li>
           );
         })}
