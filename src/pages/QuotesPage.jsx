@@ -9,14 +9,14 @@ function QuotesPage() {
     
     setTimeout(() => {
       try {
-        const fakeQuotes = [
-          { id: 101, text: 'The best way to predict the future is to invent it.', description: 'Alan Kay' },
-          { id: 102, text: 'Life is what happens when you\'re busy making other plans.', description: 'John Lennon' },
-          { id: 103, text: 'Get busy living or get busy dying.', description: 'Stephen King' },
-          { id: 104, text: 'You only live once, but if you do it right, once is enough.', description: 'Mae West' },
-          { id: 105, text: 'The only way to do great work is to love what you do.', description: 'Steve Jobs' },
-          { id: 106, text: 'Simplicity is the ultimate sophistication.', description: 'Leonardo da Vinci' }
-        ];
+       const fakeQuotes = [
+  { id: 101, text: '"The best way to predict the future is to invent it."', description: 'Alan Kay' },
+  { id: 102, text: '"Life is what happens when you\'re busy making other plans."', description: 'John Lennon' },
+  { id: 103, text: '"Get busy living or get busy dying."', description: 'Stephen King' },
+  { id: 104, text: '"You only live once, but if you do it right, once is enough."', description: 'Mae West' },
+  { id: 105, text: '"The only way to do great work is to love what you do."', description: 'Steve Jobs' },
+  { id: 106, text: '"Simplicity is the ultimate sophistication."', description: 'Leonardo da Vinci' }
+];
         setQuotes(fakeQuotes);
         setLoading(false);
       } catch (err) {
@@ -57,7 +57,7 @@ function QuotesPage() {
             className="p-4 border rounded-lg shadow-sm bg-white flex justify-between items-center"
           >
             <span className="text-lg text-gray-800">
-              &ldquo;{quote.text}&rdquo;  
+              {quote.text} 
             </span>
             <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                {quote.description}

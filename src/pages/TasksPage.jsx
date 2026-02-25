@@ -57,10 +57,10 @@ function TasksPage() {
             <li 
               key={task.id}
               className={`p-4 border rounded-lg shadow-sm flex justify-between items-center ${
-                task.description === 'completed' ? 'bg-green-50' : 'bg-white'
+                'bg-white-50' 
               }`}
             >
-              <span className={`text-lg ${task.description === 'completed' ? 'line-through text-gray-500' : 'text-gray-800'}`}>
+              <span className={`text-lg  'text-gray-800'`}>
                 {task.text}
               </span>
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
