@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Items from '../components/Items';
+import Loading from '../components/Loading';
 
 function TasksPage() {
   const [tasks, setTasks] = useState([]);
@@ -28,10 +29,7 @@ function TasksPage() {
 
   if (loading) {
     return (
-      <div className="text-center p-8">
-        <div className="spinner w-10 h-10 border-4 border-gray-200 border-t-4 border-t-blue-500 rounded-full mx-auto"></div>
-        <p className="mt-4 text-gray-600 font-medium">Loading your tasks...</p>
-      </div>
+    <Loading text='Loading your tasks...' size='md' />
     );
   }
 
